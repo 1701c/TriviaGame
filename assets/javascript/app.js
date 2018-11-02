@@ -5,37 +5,43 @@ var trivia = {
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: ['assets/images/1701.jpg','assets/images/1701schem.jpg'],
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
+    answer: 1,
+    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   },{
     question: 'WHO DESTROYED THE ENTERPRISE NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> CONSTITUTION<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: ['assets/images/1701spacedock.jpg','assets/images/1701destructs.jpg'],
-    choices: ['ROMULANS', 'BORG', 'KIRK', 'KHAN'],
-    answer: 2
+    choices: ['ROMULANS', 'KLINGONS', 'KIRK', 'KHAN'],
+    answer: 2,
+    fact: 'THE ENTERPRISE NCC-1701 WAS DESTROYED BY JAMES T. KIRK TO PREVENT ITS CAPTURE BY A KLINGON BOARDING PARTY'
   },{
     question: '3what class of ship was the uss enterprise NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: ['assets/images/1701.jpg','assets/images/1701.jpg'],
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
+    answer: 1,
+    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   },{
     question: '4what class of ship was the uss enterprise NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: 'assets/images/1701.jpg',
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
+    answer: 1,
+    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   },{
     question: '5what class of ship was the uss enterprise NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: 'assets/images/1701.jpg',
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
+    answer: 1,
+    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   },{
     question: '6what class of ship was the uss enterprise NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: 'assets/images/1701.jpg',
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
+    answer: 1,
+    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   },{
     question: '7what class of ship was the uss enterprise NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
@@ -47,19 +53,22 @@ var trivia = {
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: 'assets/images/1701.jpg',
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
+    answer: 1,
+    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   },{
     question: '9what class of ship was the uss enterprise NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: 'assets/images/1701.jpg',
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
+    answer: 1,
+    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   },{
     question: '10what class of ship was the uss enterprise NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: 'assets/images/1701.jpg',
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
+    answer: 1,
+    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   }], 
 
   init: function () {
@@ -141,7 +150,7 @@ var game = {
   },
 
   validateAnswer: function (a) {    
-    var nextSeconds = 3;
+    var nextSeconds = 5;
     var nextTimer = setInterval(nextTicker, 1000);
     clearInterval(this.drawQ.timer);
     $('.answer').off('click');
@@ -159,7 +168,8 @@ var game = {
       } 
     } 
     $('#imageDiv, #infoDiv').empty()
-    $('#questionText').html('<img src="' + trivia.questions[trivia.currentQ].image[1] + '" width="300">')
+    $('#questionText').html('<img src="' + trivia.questions[trivia.currentQ].image[1] + '" width="300"><br>')
+    .append(trivia.questions[trivia.currentQ].fact)
     if (a == trivia.questions[trivia.currentQ].answer) { 
       this.correct ++;
       $('#questionText').append('<br> <br><span class="blinking blue-text">CORRECT</span>');
@@ -201,7 +211,7 @@ var game = {
     if (trivia.currentQ === 10) {
       this.endGame();
     } else {
-      var seconds = 9;
+      var seconds = 7;
       var answerButton;
       var timer = setInterval(ticker, 1000);
       function stopTimer(response) {
