@@ -32,57 +32,91 @@ textarea:focus, input:focus{
   outline: none;
 }
 
+#passwordBox{
+  font-size: 1.8rem;
+  text-align: center;
+}
+
 input,
 textarea,
 [contenteditable] {
   caret-color: #9999ff;
 }
 
-.viewScreen {
+#mainWindow {
   background-image: url("../images/lcars3.gif");
-  width: 820px;
-  height: 600px;
+  width: 800px;
+  height: 620px;
   background-repeat: no-repeat;
   background-size: 100%;
-  padding: 2px 15px;
+  padding: 0px 15px;
   border-style: solid;
   border-color: #42426d;
   border-width: 2px;
-  margin: 15px auto;
+  margin: 10px auto;
   border-radius: 10px;
+  box-shadow: 0px 0px 15px #9999ff;
+}
+
+#topDiv {
+  height: 240px;
 }
 
 #topLeftScreen {
-  height: 180px;
-  padding-top: 25px;
-  background-color: black;
-  margin-bottom: 60px;
+  float: left;
+  /* height: 180px; */
+  padding: 70px 0px 0px 120px;
+  width: 420px;
+  /* background-color: black; */
+  /* margin-bottom: 60px; */
+  
 }
 
 #topRightScreen {
+  /* display: inline-block; */
+  float: right;
   padding: 25px 0px 0px;
   /* padding-right: 0px; */
   /* margin-right: 8px; */
-  height: 180px;
-  background-color: black;
+  height: 160px;
+  width: 260px;
+  /* background-color: black; */
+  text-align: right;
+}
+
+#bottomLeftScreen {
+  padding-left: 120px;
+  width: 420px;
+  float: left;  
+}
+
+#bottomRightScreen {
+  /* padding: 0px 0px 0px 120px; */
+  float: right;
+  width: 260px;
 }
 
 #titleDiv {
-  padding-right: 9px;
+  padding-top: 7px;
+  /* background-color: black; */
+  /* padding-right: 9px; */
   width: 100%;
   margin-bottom: -9px;
 }
 
 #fakeButtonDiv {
-  padding-right: 15px;
+  padding-top: 13px;
 }
   
 #imageDiv {
   padding-right: 0px;
+  width: 200px;
+  float: left;
 }
 
-#bottomRightScreen {
-  padding: 0px 0px 0px;
+#questionImg {
+  max-width:100%;
+  float: right;
 }
 
 #timerDiv {
@@ -92,6 +126,45 @@ textarea,
   text-align: center;
   height: 150px;
   /* padding-right: 9px; */
+}
+
+#buttonDiv {
+  text-align: right;
+}
+
+#infoDiv {
+  line-height: 1.2;
+  margin-left: 5px;
+  float: right;
+  width: 215px;
+  font-size: 1.2rem;
+}
+
+#questionText {
+  padding: 10px;
+  text-align: center;
+}
+
+.btn {
+  font-family: lcars_font;
+  border-radius: 25px;
+  width: 120px;
+  height: 42px;
+  margin-left: 3px;
+  margin-right: 4px;
+  margin-bottom: 11px;
+  outline: none;
+  text-align: right;
+  padding-right: 17px;
+  padding-top:11px;
+  font-size:15pt;
+  border-width: 0px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .blinking{
@@ -146,31 +219,6 @@ textarea,
 	0%{		opacity: 0.2;	}
 	50%{	opacity: 1.0;	}
 	100%{	opacity: 0.2;	}
-}
-
-#buttonDiv {
-  padding-right: 15px;
-}
-
-#infoDiv {
-  line-height: 1.2;
-}
-
-#questionText {
-  padding-top: 10px;
-}
-
-.btn {
-  border-radius: 25px;
-  width: 120px;
-  height: 40px;
-  margin-left: 3px;
-  margin-right: 3px;
-  margin-bottom: 10px;
-  text-align: right;
-  padding-right: 17px;
-  padding-top:11px;
-  font-size:15pt;
 }
 
 .orange-text {

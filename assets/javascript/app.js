@@ -64,11 +64,11 @@ var trivia = {
 
   init: function () {
     game.drawFakeButtons(4, '#fakeButtonDiv', true);
-    game.drawFakeButtons(12, '#buttonDiv', true);
+    game.drawFakeButtons(14, '#buttonDiv', true);
     $('#topLeftScreen').html('<br><h2>COMMAND LEVEL OVERRIDE <br><span class="lt-blue-text">INITIATED</span></h2>');
     $('#imageDiv, #infoDiv').empty();
-    $('#questionText').html('Unauthorized access detected<br>enter command codes'.toUpperCase())
-      .append('<input id="passwordBox" class="text-center" type="password"></input><br>')
+    $('#questionText').html('<h3>UNAUTHORIZED ACCESS DETECTED<br>ENTER COMMAND CODES<br></h3>')
+      .append('<h3><input id="passwordBox" type="password"></input><br></h3>')
       .append(game.linkButton('ENGAGE', 'engageButton'))
       .attr('style', 'padding-top: 50px');
     $('#timerDiv').attr('style', 'display:none;')
@@ -85,7 +85,7 @@ var game = {
 
   genericButton: function (isBlank) { // true returns blank, false returns not blank, undefined randomly returns blank
     if ((isBlank === true) || ((isBlank === undefined) && ([Math.floor(Math.random() * 5)] == 0))) {
-      return ($('<button type="button" class="btn black-back">'));
+      return ($('<button type="button" class="btn black-back">X</button>'));
     } else {
       var buttonText = '0' + [Math.floor(Math.random() * 10)] + '-';
       for (j = 0; j < 4; j++) {
@@ -119,8 +119,8 @@ var game = {
   },
 
   login: function () { // login prompts
-    game.drawFakeButtons(4, '#fakeButtonDiv', true);
-    game.drawFakeButtons(12, '#buttonDiv', true);
+    // game.drawFakeButtons(4, '#fakeButtonDiv', true);
+    // game.drawFakeButtons(12, '#buttonDiv', true);
     $('#passwordBox').val('');
     switch (this.loginAttempts) {
       case 0:
@@ -177,26 +177,33 @@ var game = {
       $('#topLeftScreen').html('<br><h2>COMMAND CODE RESET<br><span class="red-text blinking">FAILED</span></h2>');
     }
     $('#imageDiv, #infoDiv').empty();
-    $('#infoDiv, #infoDiv').empty();
+    $('#timerDiv').attr('style', 'display:none;')
+    
     game.drawFakeButtons(4, '#fakeButtonDiv', true);
     game.drawFakeButtons(12, '#buttonDiv', true);
     $('#questionText').html('<h3>COMMAND CODES SUCCESSFULLY CHANGED</h3><h3>YOUR NEW COMMAND CODES HAVE BEEN SENT TO YOU</h3>');
   },
 
   drawQ: function () {
-    var timer = setInterval(ticker, 1000);
     if (trivia.currentQ === 10) {
       this.endGame();
     } else {
       var seconds = 9;
       var answerButton;
+      var timer = setInterval(ticker, 1000);
+      function stopTimer(response) {
+          clearInterval(timer);
+            $('.answer').off('click');
+          game.validateAnswer(response);
+      }
+      
       function ticker() {
         seconds--;
         $('#timerDiv').html('TIME REMAINING<div class="blinking"> 00 : 00 : 0' + seconds + '<div>');
-        if (seconds === 0) {
+        if (seconds === 0) { stopTimer(false);
           // clearInterval(timer);
           // $('.answer').off('click');
-          game.validateAnswer(false);
+          // game.validateAnswer(false);
         } 
       }
       $('#buttonDiv').empty();
@@ -206,12 +213,12 @@ var game = {
         $('#buttonDiv').append(answerButton)
           .append(this.genericButton(true));
         }
-      $('.answer').on('click', function () {
+      $('.answer').on('click', function () { stopTimer(this.id);
         // clearInterval(timer)
         // $('.answer').off('click');
-        game.validateAnswer(this.id);
+        // game.validateAnswer(this.id);
       });    
-      $('#imageDiv').html('<img class="img-fluid" src="' + trivia.questions[trivia.currentQ].image + '">');
+      $('#imageDiv').html('<img id="questionImg" src="' + trivia.questions[trivia.currentQ].image + '">');
       $('#infoDiv').html(trivia.questions[trivia.currentQ].info);
       $('#questionText').html(trivia.questions[trivia.currentQ].question.toUpperCase());
       $('#timerDiv').html('TIME REMAINING<div class="blinking"> 00 : 00 : 0' + seconds + '</div>');
