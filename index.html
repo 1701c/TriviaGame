@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+    <meta name='viewport' content='width=device-width, initial-scale=0.1, maximum-scale=1.0, user-scalable=0'>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="assets/css/bootstrap-reboot.css">
@@ -15,16 +15,15 @@
     <title>Triva Quiz</title>
   </head>
   <body>
+    <div class="viewScreen">
     <div class="container">
       <div class="row">
-        <div class="col offset-2">
-          
-          
+        <div class="col-md offset-2">
           <div class="row">
-            <div class="col-7 text-left" id="topLeftScreen">
+            <div class="col-md-7 text-left" id="topLeftScreen">
             
             </div>
-            <div class="col text-right" id="topRightScreen">
+            <div class="col-md text-right" id="topRightScreen">
               <div id="titleDiv">
                 <h1><span class="tan-text">TREK</span> TRIVIA</h1>
               </div>
@@ -34,28 +33,29 @@
 
 
           <div class="row">
-            <div class="col-7">
+            <div class="col-md-7">
               <div class="row">
-                <div class="col-6" id="imageDiv">
+                <div class="col-md-6" id="imageDiv">
     
                 </div>
-                <div class="col text-left" id="infoDiv">
+                <div class="col-md text-left" id="infoDiv">
                   
                 </div>
               </div>
               <div class="row">
-                <div class="col">
-                  <h3 id="questionText"></h3>
+                <div class="col-md">
+                  <h3 id="questionText" class="text-center"></h3>
                 </div>
               </div>
             </div>
-            <div class="col" id="bottomRightScreen">
+            <div class="col-md" id="bottomRightScreen">
               <div id="timerDiv"></div>
               <div class="text-right" id="buttonDiv"></div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </body>
 </html>

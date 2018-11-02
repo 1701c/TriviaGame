@@ -1,6 +1,7 @@
 body {
   font-family: lcars_font;
   color: white;
+  background-color: black;
 }
 
 h1{
@@ -37,13 +38,18 @@ textarea,
   caret-color: #9999ff;
 }
 
-.container {
+.viewScreen {
   background-image: url("../images/lcars3.gif");
-  width: 800px !important;
+  width: 820px;
   height: 600px;
   background-repeat: no-repeat;
   background-size: 100%;
-  margin: 70px;
+  padding: 2px 15px;
+  border-style: solid;
+  border-color: #42426d;
+  border-width: 2px;
+  margin: 15px auto;
+  border-radius: 10px;
 }
 
 #topLeftScreen {
@@ -84,6 +90,7 @@ textarea,
   font-size: 28pt;
   color: #cc0000;
   text-align: center;
+  height: 150px;
   /* padding-right: 9px; */
 }
 
@@ -91,30 +98,67 @@ textarea,
 	animation:blinkingText 1s infinite;
 }
 @keyframes blinkingText{
-	0%{		color: transparent;	}
-	25%{	color: #cc0000;	}
-	75%{	color:  #cc0000;	}
-	100%{	color: transparent;	}
+	0%{		opacity: 0;	}
+	50%{	opacity: 1;	}
+	100%{	opacity: 0;	}
+}
+
+.engageButton{
+	animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+	0%{		opacity: 1.0;	}
+	50%{	opacity: 0.8;	}
+	100%{	opacity: 1.0;	}
+}
+
+.buttonType0 {
+	animation:blinkingButton0 4s infinite;
+}
+@keyframes blinkingButton0{
+	0%{		opacity: 0.2;	}
+	50%{	opacity: 1.0;	}
+	100%{	opacity: 0.2;	}
+}
+
+.buttonType1 {
+	animation:blinkingButton1 6s infinite;
+}
+@keyframes blinkingButton1{
+	0%{		opacity: 0.2;	}
+	50%{	opacity: 1.0;	}
+	100%{	opacity: 0.2;	}
+}
+
+.buttonType2 {
+	animation:blinkingButton2 8s infinite;
+}
+@keyframes blinkingButton2{
+	0%{		opacity: 0.2;	}
+	50%{	opacity: 1.0;	}
+	100%{	opacity: 0.2;	}
+}
+
+.buttonType3 {
+	animation:blinkingButton3 10s infinite;
+}
+@keyframes blinkingButton3{
+	0%{		opacity: 0.2;	}
+	50%{	opacity: 1.0;	}
+	100%{	opacity: 0.2;	}
 }
 
 #buttonDiv {
   padding-right: 15px;
 }
 
-
 #infoDiv {
   line-height: 1.2;
 }
 
-
-
 #questionText {
   padding-top: 10px;
 }
-
-
-
-
 
 .btn {
   border-radius: 25px;
@@ -128,10 +172,6 @@ textarea,
   padding-top:11px;
   font-size:15pt;
 }
-
-/* .white-text {
-  color: white;
-} */
 
 .orange-text {
   color: #ff9900;
