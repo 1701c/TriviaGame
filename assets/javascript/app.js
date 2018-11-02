@@ -15,22 +15,22 @@ var trivia = {
     answer: 2,
     fact: 'THE ENTERPRISE NCC-1701 WAS DESTROYED BY JAMES T. KIRK TO PREVENT ITS CAPTURE BY A KLINGON BOARDING PARTY'
   },{
-    question: '3what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
-    image: ['assets/images/1701.jpg','assets/images/1701.jpg'],
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
+    question: 'WHAT WAS THE MAXIMUM DESIGN SPEED OF THE ENTERPRISE NX-01?',
+    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> NX<br><span class="tan-text">REGISTRY:</span> NX-01<br><span class="tan-text">OWNER:</span> UNITED EARTH<br><span class="tan-text">OPERATOR:</span> STARFLEET<br><span class="tan-text">STATUS:</span> DECOMMISSIONED (2161)',
+    image: ['assets/images/NX-01.jpg','assets/images/NX-01storm.jpg'],
+    choices: ['WARP 3', 'WARP 5', 'WARP 7', 'WARP 9'],
     answer: 1,
-    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
+    fact: 'THE ENTERPRISE NX-01 WAS EQUIPED WITH EARTH\'S FIRST WARP 5 ENGINE'
   },{
-    question: '4what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
-    image: 'assets/images/1701.jpg',
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1,
-    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
+    question: 'WHAT STARSHIP WAS COMMANDED BY CAPTAIN HIKARU SULU',
+    info: '<span class="blue-text">HIKARU SULU</span><br><span class="tan-text">GENDER:</span> MALE<br><span class="tan-text">SPECIES:</span> HUMAN<br><span class="tan-text">AFFILIATION:</span> FEDERATION STARFLEET<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">RANK:</span> CAPTAIN',
+    image: ['assets/images/Sulu.jpg','assets/images/Excelsior.jpg'],
+    choices: ['FARRAGUT', 'YORKTOWN', 'DEFIANT', 'EXCELSIOR'],
+    answer: 3,
+    fact: 'IN 2290, CAPTAIN SULU ASSUMED COMMAND OF THE USS EXCELSIOR NCC-2000'
   },{
     question: '5what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
+    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">DOB:</span> 2237<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: 'assets/images/1701.jpg',
     choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
     answer: 1,
@@ -169,6 +169,7 @@ var game = {
     } 
     $('#imageDiv, #infoDiv').empty()
     $('#questionText').html('<img src="' + trivia.questions[trivia.currentQ].image[1] + '" width="300"><br>')
+    .attr('style','padding-top: 10px;')
     .append(trivia.questions[trivia.currentQ].fact)
     if (a == trivia.questions[trivia.currentQ].answer) { 
       this.correct ++;
@@ -237,7 +238,8 @@ var game = {
       });    
       $('#imageDiv').html('<img id="questionImg" src="' + trivia.questions[trivia.currentQ].image[0] + '">');
       $('#infoDiv').html(trivia.questions[trivia.currentQ].info);
-      $('#questionText').html(trivia.questions[trivia.currentQ].question.toUpperCase());
+      $('#questionText').html(trivia.questions[trivia.currentQ].question.toUpperCase())
+      .attr('style','padding-top: 30px;')
       $('#timerDiv').html('TIME REMAINING<div class="blinking"> 00 : 00 : 0' + seconds + '</div>');
       $('#timerDiv').attr('style', '')
     }
