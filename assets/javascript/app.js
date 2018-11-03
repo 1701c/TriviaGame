@@ -1,14 +1,19 @@
 var trivia = {
   currentQ: 0,
+  beep: new Audio("assets/sounds/computerbeep_15.mp3"),
+  deny: new Audio("assets/sounds/denybeep1.mp3"),
+  processing: new Audio("assets/sounds/processing.mp3"),
+  question: new Audio("assets/sounds/deskviewer1.mp3"),
+
   questions: [{
-    question: 'what class of ship was the uss enterprise<br>NCC-1701?',
+    question: 'WHAT CLASS OF SHIP WAS THE ENTERPRISE<br>NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: ['assets/images/1701.jpg','assets/images/1701schem.jpg'],
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
+    choices: ['GALAXY', 'CONSTITUTION', 'EXCELSIOR', 'SOVEREIGN'],
     answer: 1,
     fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
   },{
-    question: 'WHO DESTROYED THE ENTERPRISE NCC-1701?',
+    question: 'WHO IS RESPONSIBLE FOR THE DESTRUCTION OF THE ENTERPRISE NCC-1701?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> CONSTITUTION<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
     image: ['assets/images/1701spacedock.jpg','assets/images/1701destructs.jpg'],
     choices: ['ROMULANS', 'KLINGONS', 'KIRK', 'KHAN'],
@@ -17,17 +22,17 @@ var trivia = {
   },{
     question: 'WHAT WAS THE MAXIMUM DESIGN SPEED OF THE ENTERPRISE NX-01?',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> NX<br><span class="tan-text">REGISTRY:</span> NX-01<br><span class="tan-text">OWNER:</span> UNITED EARTH<br><span class="tan-text">OPERATOR:</span> STARFLEET<br><span class="tan-text">STATUS:</span> DECOMMISSIONED (2161)',
-    image: ['assets/images/NX-01.jpg','assets/images/NX-01storm.jpg'],
+    image: ['assets/images/NX-01.jpg','assets/images/warp_core.jpg'],
     choices: ['WARP 3', 'WARP 5', 'WARP 7', 'WARP 9'],
     answer: 1,
     fact: 'THE ENTERPRISE NX-01 WAS EQUIPED WITH EARTH\'S FIRST WARP 5 ENGINE'
   },{
     question: 'WHAT STARSHIP WAS COMMANDED BY CAPTAIN HIKARU SULU?',
-    info: '<span class="blue-text">HIKARU SULU</span><br><span class="tan-text">GENDER:</span> MALE<br><span class="tan-text">SPECIES:</span> HUMAN<br><span class="tan-text">AFFILIATION:</span> FEDERATION STARFLEET<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">RANK:</span> CAPTAIN',
+    info: '<span class="blue-text">HIKARU SULU</span><br><span class="tan-text">GENDER:</span> MALE<br><span class="tan-text">SPECIES:</span> HUMAN<br><span class="tan-text">AFFILIATION:</span> FEDERATION STARFLEET<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">RANK:</span> CAPTAIN<br><span class="tan-text">DOB:</span> 2237',
     image: ['assets/images/Sulu.jpg','assets/images/Excelsior.jpg'],
     choices: ['FARRAGUT', 'YORKTOWN', 'DEFIANT', 'EXCELSIOR'],
     answer: 3,
-    fact: 'IN 2290, CAPTAIN SULU ASSUMED COMMAND OF<br>NCC-2000, USS EXCELSIOR'
+    fact: 'IN 2290, CAPTAIN SULU WAS GIVEN COMMAND OF<br>NCC-2000, USS EXCELSIOR'
   },{
     question: 'IDENTIFY THIS SHIP',
     info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> ?<br><span class="tan-text">OWNER:</span> ?<br><span class="tan-text">OPERATOR:</span> ?<br><span class="tan-text">STATUS:</span> ?',
@@ -38,6 +43,7 @@ var trivia = {
   }], 
 
   init: function () {
+    this.currentQ = 0;
     game.loginAttempts = 0;
     game.correct = 0;
     game.incorrect = 0;
@@ -51,6 +57,7 @@ var trivia = {
     $('#timerDiv').attr('style', 'display:none;')
     $('.engageButton').click(function () {game.login()})
     this.currentQ = 0;
+    this.question.play();
   },
 };
 
@@ -113,6 +120,7 @@ var game = {
         })
     }
     this.loginAttempts++;
+    trivia.beep.play();
   },
 
   validateAnswer: function (a) {    
@@ -122,7 +130,7 @@ var game = {
     $('.answer').off('click');
     function nextTicker() {
       nextSeconds--;
-      $('#timerDiv').html('NEXT QUESTION IN<br><span class="blinking"> 00 : 00 : 0' + nextSeconds + '</span>');
+      $('#timerDiv').html('CONTINUING IN<br><span class="blinking"> 00 : 00 : 0' + nextSeconds + '</span>');
       if (nextSeconds === 0) {
         clearInterval(nextTimer);
         game.drawQ();
@@ -134,19 +142,22 @@ var game = {
       } 
     } 
     $('#imageDiv, #infoDiv').empty()
-    $('#questionText').html('<img src="' + trivia.questions[trivia.currentQ].image[1] + '" width="300"><br>')
+    $('#questionText').html('<img id="answerImg" src="' + trivia.questions[trivia.currentQ].image[1] + '" width="300"><br>')
     .attr('style','padding-top: 10px;')
     .append(trivia.questions[trivia.currentQ].fact)
     if (a == trivia.questions[trivia.currentQ].answer) { 
       this.correct ++;
       $('#questionText').append('<br> <br><span class="blinking blue-text">CORRECT</span>');
+      trivia.processing.play();
     } else {
       this.incorrect ++;
       $('#questionText').append('<br> <br><span class="blinking red-text">INCORRECT</span>');
+      trivia.deny.play();
     }
     trivia.currentQ++;
-    $('#topLeftScreen').html('<br><h2>COMMAND CODE RESET<br><span class="blue-text">' + this.correct + '</span>:<span class="lt-red-text">' + this.incorrect + '</span> &nbsp <span class="lt-blue-text">'+ (trivia.currentQ * 10) +'% COMPLETE</span></h2>');
-    $('#timerDiv').html('NEXT QUESTION IN<br> &nbsp;');
+    trivia.processing.play();
+    $('#topLeftScreen').html('<br><h2>COMMAND CODE RESET<br><span class="blue-text">' + this.correct + '</span>:<span class="lt-red-text">' + this.incorrect + '</span> &nbsp <span class="lt-blue-text">'+ (trivia.currentQ * 20) +'% COMPLETE</span></h2>');
+    $('#timerDiv').html('CONTINUING IN<br> &nbsp;');
   },
   
   endGame: function () {
@@ -169,6 +180,7 @@ var game = {
       $('#endDiv').attr('style','margin-top: 20px; text-align: center; background-image: url("../assets/images/fedlogo.jpeg"); background-repeat: no-repeat; background-position: center; ')
         .html('<h2 class="red-text blinking"><br>COMMAND CODE RESET FAILED</h2><br><h2>THIS CONSOLE HAS BEEN LOCKED</h2><h2>SECURITY HAS BEEN ALERTED</h2><br><h2 class="blinking">REMAIN IN THE AREA<br> <br></h2>')
       $('#buttonDiv, #fakeButtonDiv').empty()
+      trivia.deny.play();
     }
     $('#imageDiv, #infoDiv').empty()
     $('#timerDiv').attr('style', 'display:none;')
@@ -178,7 +190,7 @@ var game = {
     if (trivia.currentQ === 5) {
       this.endGame();
     } else {
-      var seconds = 7;
+      var seconds = 9;
       var answerButton;
       var timer = setInterval(ticker, 1000);
       function stopTimer(response) {
@@ -195,7 +207,7 @@ var game = {
       }
       $('#buttonDiv').empty();
       for (i = 0; i < 4; i++) {
-        answerButton = this.linkButton(trivia.questions[trivia.currentQ].choices[i].toUpperCase(), 'answer');
+        answerButton = this.linkButton(trivia.questions[trivia.currentQ].choices[i], 'answer');
         answerButton.attr('id', i);
         $('#buttonDiv').append(answerButton)
           .append(this.genericButton(true));
@@ -208,10 +220,19 @@ var game = {
       .attr('style','padding-top: 30px;')
       $('#timerDiv').html('TIME REMAINING<div class="blinking"> 00 : 00 : 0' + seconds + '</div>');
       $('#timerDiv').attr('style', '')
+      trivia.question.play();
     }
   }
 };
 
 $(document).ready(function () {
+  $('#buttonDiv').click(function () {
+    trivia.beep.currentTime = 0;
+    trivia.beep.play();
+  })
+  $(document).keypress(function () {
+    trivia.beep.currentTime = 0;
+    trivia.beep.play();
+  })
   trivia.init();
 });

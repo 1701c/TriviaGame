@@ -114,9 +114,14 @@ textarea,
   float: left;
 }
 
+#answerImg {
+  border-radius: 5px;
+}
+
 #questionImg {
   max-width:100%;
   float: right;
+  border-radius: 5px;
 }
 
 #timerDiv {
