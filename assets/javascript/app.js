@@ -22,53 +22,19 @@ var trivia = {
     answer: 1,
     fact: 'THE ENTERPRISE NX-01 WAS EQUIPED WITH EARTH\'S FIRST WARP 5 ENGINE'
   },{
-    question: 'WHAT STARSHIP WAS COMMANDED BY CAPTAIN HIKARU SULU',
+    question: 'WHAT STARSHIP WAS COMMANDED BY CAPTAIN HIKARU SULU?',
     info: '<span class="blue-text">HIKARU SULU</span><br><span class="tan-text">GENDER:</span> MALE<br><span class="tan-text">SPECIES:</span> HUMAN<br><span class="tan-text">AFFILIATION:</span> FEDERATION STARFLEET<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">RANK:</span> CAPTAIN',
     image: ['assets/images/Sulu.jpg','assets/images/Excelsior.jpg'],
     choices: ['FARRAGUT', 'YORKTOWN', 'DEFIANT', 'EXCELSIOR'],
     answer: 3,
-    fact: 'IN 2290, CAPTAIN SULU ASSUMED COMMAND OF THE USS EXCELSIOR NCC-2000'
+    fact: 'IN 2290, CAPTAIN SULU ASSUMED COMMAND OF<br>NCC-2000, USS EXCELSIOR'
   },{
-    question: '5what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">DOB:</span> 2237<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
-    image: 'assets/images/1701.jpg',
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1,
-    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
-  },{
-    question: '6what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
-    image: 'assets/images/1701.jpg',
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1,
-    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
-  },{
-    question: '7what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
-    image: 'assets/images/1701.jpg',
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1
-  },{
-    question: '8what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
-    image: 'assets/images/1701.jpg',
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1,
-    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
-  },{
-    question: '9what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
-    image: 'assets/images/1701.jpg',
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1,
-    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
-  },{
-    question: '10what class of ship was the uss enterprise NCC-1701?',
-    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> NCC-1701<br><span class="tan-text">OWNER:</span> UNITED FEDERATION OF PLANETS<br><span class="tan-text">OPERATOR:</span> STARFLEET/UESPA<br><span class="tan-text">STATUS:</span> DESTROYED (2285)',
-    image: 'assets/images/1701.jpg',
-    choices: ['galaxy', 'constitution', 'excelsior', 'sovereign'],
-    answer: 1,
-    fact: 'THE ENTERPRISE NCC-1701 WAS A CONSTITUTION CLASS VESSEL'
+    question: 'IDENTIFY THIS SHIP',
+    info: '<span class="blue-text">USS ENTERPRISE</span><br><span class="tan-text">CLASS:</span> ?<br><span class="tan-text">REGISTRY:</span> ?<br><span class="tan-text">OWNER:</span> ?<br><span class="tan-text">OPERATOR:</span> ?<br><span class="tan-text">STATUS:</span> ?',
+    image: ['assets/images/1701x.jpg','assets/images/1701cschem.jpg'],
+    choices: ['ENTERPRISE 1701A', 'ENTERPRISE 1701B', 'ENTERPRISE 1701C', 'ENTERPRISE 1701D'],
+    answer: 2,
+    fact: 'THE ENTERPRISE NCC-1701C WAS WAS COMMANDED BY CAPTAIN RACHEL GARRETT'
   }], 
 
   init: function () {
@@ -184,8 +150,8 @@ var game = {
   },
   
   endGame: function () {
-    if (this.correct > 6) {
-      if (this.correct > 8) {
+    if (this.correct > 3) {
+      if (this.correct > 4) {
         $('#topLeftScreen').html('<br><h2>COMMAND CODE RESET<br><span class="lt-blue-text">COMPLETE</span></h2>')
         $('#questionText').html('<h3><br> <br>COMMAND CODES SUCCESSFULLY RESET</h3><h3>YOUR NEW COMMAND CODES HAVE BEEN SENT TO YOU<br> <br></h3>')
       } else {
@@ -209,7 +175,7 @@ var game = {
   },
 
   drawQ: function () {
-    if (trivia.currentQ === 10) {
+    if (trivia.currentQ === 5) {
       this.endGame();
     } else {
       var seconds = 7;
