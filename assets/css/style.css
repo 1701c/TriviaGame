@@ -5,14 +5,11 @@ body {
 }
 
 h1{
-  font-size: 3.2rem;
-  padding-right: 8px;
-  /* line-height: 1; */
-  /* color: white; */
+  font-size: 3.3rem;
 }
 
 h2 {
-  font-size: 2.96rem;
+  font-size: 3rem;
 }
 
 h3 {
@@ -44,12 +41,15 @@ textarea,
 }
 
 #mainWindow {
-  background-image: url("../images/lcars3.gif");
-  width: 800px;
-  height: 620px;
+  background-image: url("../images/lcars3-800.jpg");
+  width: 662px;
+  height: 592px;
   background-repeat: no-repeat;
-  background-size: 100%;
-  padding: 0px 15px;
+  background-size: 800px 600px;
+  padding-top: 8px;
+  padding-left: 130px;
+  padding-right: 8px;
+  /* padding-bottom: 8px; */
   border-style: solid;
   border-color: #42426d;
   border-width: 2px;
@@ -59,59 +59,57 @@ textarea,
 }
 
 #topDiv {
-  height: 240px;
+  height: 216px;
+}
+
+#titleDiv {
+  width: 100%;
+  margin-bottom: -9px;
+  text-align: right;
 }
 
 #topLeftScreen {
   float: left;
-  /* height: 180px; */
-  padding: 70px 0px 0px 120px;
-  width: 420px;
-  /* background-color: black; */
-  /* margin-bottom: 60px; */
-  
+  /* padding: 65px 0px 0px; */
+  width: 392px;
+  /* margin-top: -1px; */
 }
 
 #topRightScreen {
-  /* display: inline-block; */
   float: right;
-  padding: 25px 0px 0px;
-  /* padding-right: 0px; */
-  /* margin-right: 8px; */
-  height: 160px;
+  padding-top: 13px;
   width: 260px;
-  /* background-color: black; */
-  text-align: right;
+  /* text-align: right; */
+  /* text-align: right; */
+}
+
+#bottomDiv {
+  height: 367px;
 }
 
 #bottomLeftScreen {
-  padding-left: 120px;
-  width: 420px;
+  width: 392px;
   float: left;  
 }
 
 #bottomRightScreen {
-  /* padding: 0px 0px 0px 120px; */
   float: right;
   width: 260px;
 }
-
-#titleDiv {
-  padding-top: 7px;
-  /* background-color: black; */
-  /* padding-right: 9px; */
-  width: 100%;
-  margin-bottom: -9px;
-}
-
-#fakeButtonDiv {
-  padding-top: 13px;
-}
   
 #imageDiv {
-  padding-right: 0px;
+  padding-top: 4px;
   width: 200px;
   float: left;
+}
+
+#infoDiv {
+  line-height: 1.2;
+  padding-top: 4px;
+  padding-left: 10px;
+  float: right;
+  width: 182px;
+  font-size: 1.1rem;
 }
 
 #answerImg {
@@ -130,39 +128,28 @@ textarea,
   color: #cc0000;
   text-align: center;
   height: 125px;
-  /* padding-right: 9px; */
 }
 
 #buttonDiv {
-  text-align: right;
-}
-
-#infoDiv {
-  line-height: 1.2;
-  margin-left: 5px;
-  margin-top: 10px;
-  float: right;
-  width: 215px;
-  font-size: 1.2rem;
+  /* text-align: right; */
 }
 
 #questionText {
-  padding: 10px;
+  /* padding-right: 10px; */
   text-align: center;
 }
 
 .btn {
   font-family: lcars_font;
   border-radius: 25px;
-  width: 120px;
-  height: 42px;
-  margin-left: 3px;
-  margin-right: 4px;
+  width: 124px;
+  height: 43px;
+  margin-left: 6px;
   margin-bottom: 11px;
   outline: none;
   text-align: right;
-  padding-right: 17px;
-  padding-top:11px;
+  padding-right: 19px;
+  padding-top:17px;
   font-size:15pt;
   border-width: 0px;
 }
@@ -176,6 +163,7 @@ textarea,
 .blinking{
 	animation:blinkingText 1s infinite;
 }
+
 @keyframes blinkingText{
 	0%{		opacity: 0;	}
 	50%{	opacity: 1;	}
