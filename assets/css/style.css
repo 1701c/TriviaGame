@@ -129,6 +129,14 @@ textarea,
   text-align: center;
 }
 
+#endDiv {
+  background-image: url("../images/fedlogo.jpeg");
+  margin-top: 20px; 
+  text-align: center; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
+
 .btn {
   font-family: lcars_font;
   border-radius: 25px;

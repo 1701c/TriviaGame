@@ -131,7 +131,7 @@ var game = {
 
     clearInterval(this.drawQ.timer);
     for (i = 0; i < 4; i++) { // hide incorrect answers
-      if (i != trivia.questions[trivia.currentQ].answer) $('#' + i).attr('style', 'visibility:hidden;');
+      if (i != trivia.questions[trivia.currentQ].answer) $('#' + i).css('visibility','hidden');
     }
     $('#questionText').html('<img id="answerImg" src="' + trivia.questions[trivia.currentQ].image[1] + '" width="300"><br>')
       .css('padding-top','10px')
@@ -171,8 +171,7 @@ var game = {
       $('#topLeftScreen').html('<br><h2>COMMAND CODE RESET<br><span class="red-text blinking">FAILED</span></h2>')
       $('#bottomDiv').empty()
         .append('<div id="endDiv">')
-      $('#endDiv').attr('style', 'margin-top: 20px; text-align: center; background-image: url("../assets/images/fedlogo.jpeg"); background-repeat: no-repeat; background-position: center; ')
-        .html('<h2 class="red-text blinking"><br>COMMAND CODE RESET FAILED</h2><br><h2>THIS CONSOLE HAS BEEN LOCKED</h2><h2>SECURITY HAS BEEN ALERTED</h2><br><h2 class="blinking">REMAIN IN THE AREA<br> <br></h2>')
+      $('#endDiv').html('<h2 class="red-text blinking"><br>COMMAND CODE RESET FAILED</h2><br><h2>THIS CONSOLE HAS BEEN LOCKED</h2><h2>SECURITY HAS BEEN ALERTED</h2><br><h2 class="blinking">REMAIN IN THE AREA<br> <br></h2>')
       $('#buttonDiv, #topRightScreen').empty()
       trivia.deny.play();
     }
