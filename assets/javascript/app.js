@@ -47,6 +47,8 @@ var trivia = {
     game.loginAttempts = 0;
     game.correct = 0;
     game.incorrect = 0;
+    this.currentQ = 0;
+    game.drawFakeButtons(14, '#buttonDiv', true);
     $('#imageDiv, #infoDiv, #timerDiv').css('display','none')
     $('#topLeftScreen').html('<br><h2>COMMAND LEVEL <span class="tan-text">OVERRIDE</span><br><span class="lt-blue-text">INITIATED</span></h2>')
     $('#questionText').html('<h3>UNAUTHORIZED ACCESS DETECTED<br>ENTER COMMAND CODES<br></h3><input id="passwordBox" type="password"></input><br> <br></h3>')
@@ -55,8 +57,6 @@ var trivia = {
     $('.engageButton').click(function () {
       game.login()
     })
-    game.drawFakeButtons(14, '#buttonDiv', true);
-    this.currentQ = 0;
     this.question.play();
   },
 };
@@ -67,7 +67,7 @@ var game = {
   correct: 0,
   incorrect: 0,
 
-  genericButton: function (isBlank) { // true returns blank, false returns not blank, undefined randomly returns blanks and blinking css class
+  genericButton: function (isBlank) { // true returns blank, false returns not blank, undefined randomly returns blanks and blinking css classes
     if ((isBlank === true) || ((isBlank === undefined) && ([Math.floor(Math.random() * 5)] == 0))) {
       return ($('<button type="button" class="btn black-back">X</button>'));
     } else {
@@ -89,7 +89,7 @@ var game = {
     var buttonHTML = $('<button type="button" class="btn">');
     buttonHTML.addClass(this.colors[Math.floor(Math.random() * 8)] + '-back')
       .text(buttonText)
-    if (buttonClass !== 'none') buttonHTML.addClass(buttonClass)
+    if (buttonClass !== 'none' || buttonClass === undefined) buttonHTML.addClass(buttonClass)
     return (buttonHTML);
   },
 
@@ -148,7 +148,7 @@ var game = {
     $('.answer').off('click');
     $('#imageDiv, #infoDiv').css('display','none')
     $('#topLeftScreen').html('<br><h2>COMMAND CODE RESET<br><span class="blue-text">' + this.correct + '</span>:<span class="lt-red-text">' + this.incorrect + '</span>   <span class="lt-blue-text">' + (trivia.currentQ * 20) + '% COMPLETE</span></h2>');
-    $('#timerDiv').html('CONTINUING IN<br>  ');
+    $('#timerDiv').html('CONTINUING IN<br> ');
     trivia.processing.play();
     trivia.currentQ++;
   },
