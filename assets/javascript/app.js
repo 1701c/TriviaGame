@@ -118,9 +118,7 @@ var game = {
   validateAnswer: function (a) {
     var nextSeconds = 5;
     var nextTimer = setInterval(nextTicker, 1000);
-    clearInterval(this.drawQ.timer);
-    $('.answer').off('click');
-
+    
     function nextTicker() {
       nextSeconds--;
       $('#timerDiv').html('CONTINUING IN<br><span class="blinking"> 00 : 00 : 0' + nextSeconds + '</span>');
@@ -131,10 +129,10 @@ var game = {
       }
     }
 
+    clearInterval(this.drawQ.timer);
     for (i = 0; i < 4; i++) { // hide incorrect answers
       if (i != trivia.questions[trivia.currentQ].answer) $('#' + i).attr('style', 'visibility:hidden;');
     }
-    $('#imageDiv, #infoDiv').css('display','none')
     $('#questionText').html('<img id="answerImg" src="' + trivia.questions[trivia.currentQ].image[1] + '" width="300"><br>')
       .css('padding-top','10px')
       .append(trivia.questions[trivia.currentQ].fact)
@@ -147,6 +145,8 @@ var game = {
       $('#questionText').append('<br> <br><span class="blinking red-text">INCORRECT</span>');
       trivia.deny.play();
     }
+    $('.answer').off('click');
+    $('#imageDiv, #infoDiv').css('display','none')
     $('#topLeftScreen').html('<br><h2>COMMAND CODE RESET<br><span class="blue-text">' + this.correct + '</span>:<span class="lt-red-text">' + this.incorrect + '</span>   <span class="lt-blue-text">' + (trivia.currentQ * 20) + '% COMPLETE</span></h2>');
     $('#timerDiv').html('CONTINUING IN<br>  ');
     trivia.processing.play();
@@ -176,7 +176,6 @@ var game = {
       $('#buttonDiv, #topRightScreen').empty()
       trivia.deny.play();
     }
-    // $('#imageDiv, #infoDiv').empty()
     $('#timerDiv, #imageDiv, #infoDiv').css('display','none')
   },
 
@@ -187,6 +186,7 @@ var game = {
       var seconds = 9;
       var answerButton;
       var timer = setInterval(ticker, 1000);
+      console.log(trivia.questions[trivia.currentQ].choices[trivia.questions[trivia.currentQ].answer])
 
       function stopTimer(response) {
         clearInterval(timer);
@@ -216,9 +216,9 @@ var game = {
       $('#imageDiv').html('<img id="questionImg" src="' + trivia.questions[trivia.currentQ].image[0] + '">');
       $('#infoDiv').html(trivia.questions[trivia.currentQ].info);
       $('#questionText').html(trivia.questions[trivia.currentQ].question)
-        .attr('style', 'padding-top: 30px;')
-      $('#timerDiv').html('TIME REMAINING<div class="blinking"> 00 : 00 : 0' + seconds + '</div>');
-      $('#timerDiv').attr('style', '')
+        .css('padding-top', '30px')
+      $('#timerDiv').html('TIME REMAINING<div class="blinking"> 00 : 00 : 0' + seconds + '</div>')
+        .css('display', '')
       trivia.question.play();
     }
   }
