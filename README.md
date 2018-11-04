@@ -1,2 +1,3 @@
 # TriviaGame
-Trivia game to practice timers
+
+Star Trek terminal themed trivia game
